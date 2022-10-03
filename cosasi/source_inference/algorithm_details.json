@@ -11,7 +11,7 @@
             "namespace": "cosasi.single_source.rumor_centrality"
         },
         "short-fat-tree": {
-            "epidemic model": ["si", "ic"],
+            "epidemic model": ["si", "ic", "sir"],
             "information type": "single snapshot",
             "reference": {
                 "publication link": "https://ieeexplore.ieee.org/document/6962907",
