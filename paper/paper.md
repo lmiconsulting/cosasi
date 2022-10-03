@@ -26,8 +26,11 @@ bibliography: references.bib
 # Summary
 
 `cosasi` (COntagion Simulation And Source Inference) is, to the author's knowledge, the first extensible open-source framework for graph diffusion source inference that allows users to:
+
 - **perform and evaluate** source localization using standard techniques from literature,
+
 - **contribute** innovative algorithms to a growing core library, and
+
 - **benchmark** new techniques against a battery of comparable schemes.
 
 The software is currently used within the Logistics Management Institute. Additional development continues, and we welcome contribution from the broader academic and industrial communities.
