@@ -7,7 +7,7 @@
 =======================================================
 
 .. figure:: _assets/grasshopper.png
-   :scale: 90 %
+   :figwidth: 100%
    :align: left
 
 
@@ -16,8 +16,8 @@ Overview
 
 ``cosasi`` is a Python package for graph diffusion source localization, allowing users to:
 
-- **perform and evaluate** source inference using standard techniques from literature, 
-- **contribute** innovative localization methods to a growing core library, and 
+- **perform and evaluate** source inference using standard techniques from literature,
+- **contribute** innovative localization methods to a growing core library, and
 - **benchmark** new techniques against a battery of comparable schemes.
 
 
@@ -30,7 +30,7 @@ Table of Contents
 .. toctree::
    :titlesonly:
    :maxdepth: 1
-   
+
    quickstart
    tutorial
    developer

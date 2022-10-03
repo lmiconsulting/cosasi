@@ -1,0 +1,10 @@
+---
+formats: all
+python:
+  install:
+    -
+      requirements: docs/requirements.txt
+  version: 3.8
+sphinx:
+  configuration: docs/conf.py
+version: 2

@@ -14,7 +14,7 @@ import networkx as nx
 MODULE_PATH = __file__[: -len("source_results.py")]
 MODULE_PATH = (
     MODULE_PATH
-    if len(MODULE_PATH) > 0 and MODULE_PATH[-1] == "/"
+    if len(MODULE_PATH) > 0 and (MODULE_PATH[-1] == "/" or MODULE_PATH[-1] == "\\")
     else MODULE_PATH + "/"
 )
 
@@ -82,7 +82,7 @@ class SourceResult:
         The original graph the infection process was run on.
         I is a subgraph of G induced by infected vertices at observation time.
     algorithm_details : bool
-        if True, includes relevant information about the source 
+        if True, includes relevant information about the source
         inference algorithm used
     reverse : bool (default True)'
         if True, ranks items from highest score to lowest
@@ -112,7 +112,7 @@ class SourceResult:
             The original graph the infection process was run on.
             I is a subgraph of G induced by infected vertices at observation time.
         algorithm_details : bool
-            if True, includes relevant information about the source 
+            if True, includes relevant information about the source
             inference algorithm used
         reverse : bool (default True)'
             if True, ranks items from highest score to lowest
@@ -230,7 +230,7 @@ class SingleSourceResult(SourceResult):
     scores : dict
         per-node scores for ranking, retrieval, etc.
     algorithm_details : bool
-        if True, includes relevant information about the source 
+        if True, includes relevant information about the source
         inference algorithm used
     reverse : bool (default True)'
         if True, ranks items from highest score to lowest
@@ -247,7 +247,7 @@ class SingleSourceResult(SourceResult):
         scores : dict
             per-node scores for ranking, retrieval, etc.
         algorithm_details : bool
-            if True, includes relevant information about the source 
+            if True, includes relevant information about the source
             inference algorithm used
         reverse : bool (default True)'
             if True, ranks items from highest score to lowest
@@ -264,7 +264,7 @@ class SingleSourceResult(SourceResult):
         v : graph index - str, int, etc.
             vertex of interest
         soft_rank : bool
-            if True and v is not in the list of hypotheses, returns 1 more 
+            if True and v is not in the list of hypotheses, returns 1 more
             than the number of hypotheses
 
         Returns
@@ -288,7 +288,7 @@ class MultiSourceResult(SourceResult):
     scores : dict
         per-item scores for ranking, retrieval, etc.
     algorithm_details : bool
-        if True, includes relevant information about the source 
+        if True, includes relevant information about the source
         inference algorithm used
     reverse : bool (default True)'
         if True, ranks items from highest score to lowest
@@ -305,7 +305,7 @@ class MultiSourceResult(SourceResult):
         scores : dict
             per-item scores for ranking, retrieval, etc.
         algorithm_details : bool
-            if True, includes relevant information about the source 
+            if True, includes relevant information about the source
             inference algorithm used
         reverse : bool (default True)'
             if True, ranks items from highest score to lowest
@@ -322,7 +322,7 @@ class MultiSourceResult(SourceResult):
         s : list
             node set of graph indices
         soft_rank : bool
-            if True and v is not in the list of hypotheses, returns 1 more 
+            if True and v is not in the list of hypotheses, returns 1 more
             than the number of hypotheses
 
         Returns

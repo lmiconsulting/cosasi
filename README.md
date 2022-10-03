@@ -1,3 +1,6 @@
+[![PyPI version](https://badge.fury.io/py/cosasi.svg)](https://badge.fury.io/py/cosasi)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+
 # cosasi (COntagion Simulation And Source Inference)
 
 ``cosasi`` is a Python package for graph diffusion source localization, allowing users to:
@@ -10,11 +13,21 @@
 
 ## Table of Contents
 * [Table of Contents](#table-of-contents)
+* [Getting Started](#getting-started)
 * [Contact](#contact)
 * [License](#license)
 
 
 ![carbon](./docs/_assets/carbon.png)
+
+
+
+## Getting Started
+Install `cosasi` with [pip](https://pypi.org/project/cosasi/):
+
+```bash
+pip install cosasi
+```
 
 
 ## Contact
