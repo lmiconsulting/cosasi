@@ -9,3 +9,4 @@ scipy==1.9.0
 coverage==6.3.2
 six==1.16.0
 pydata_sphinx_theme==0.8.1
+numpydoc

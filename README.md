@@ -14,6 +14,7 @@
 ## Table of Contents
 * [Table of Contents](#table-of-contents)
 * [Getting Started](#getting-started)
+* [Documentation](#documentation)
 * [Contact](#contact)
 * [License](#license)
 
@@ -28,6 +29,9 @@ Install `cosasi` with [pip](https://pypi.org/project/cosasi/):
 ```bash
 pip install cosasi
 ```
+
+## Documentation
+Official documentation, including a [tutorial](https://cosasi.readthedocs.io/en/latest/tutorial.html) and detailed [API reference](https://cosasi.readthedocs.io/en/latest/apiref.html), is available on [Read the Docs](https://cosasi.readthedocs.io/).
 
 
 ## Contact
