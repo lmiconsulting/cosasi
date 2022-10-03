@@ -63,10 +63,15 @@ Documentation is provided via [Read the Docs](https://cosasi.readthedocs.io/), i
 # Similar Software
 
 To the author's knowledge, the only comparable and active source localization software is `RPaSDT` [@frkaszczak2022rpasdt]. Here, we enumerate a handful of differences between `RPaSDT` and `cosasi`, which we believe make `cosasi` preferable for user accessibility, scalability, and community contribution:
+
 - **Presentation**: `RPaSDT` is a GUI toolkit. `cosasi` is an importable package, with extensive documentation and unit testing.
+
 - **Benchmarking**: `RPaSDT` does not provide automatic benchmarking, whereas this is a core feature of `cosasi`.
+
 - **Multi-Source Capabilities**: Multi-source inference in `RPaSDT` is generally performed by partitioning the infection subgraph and applying single-source algorithms to each partition. `cosasi` implements this strategy, as well, but also supports "natural" multi-source inference that does not require repurposing single-source techniques.
+
 - **Estimator Utilities**: When extending single-source algorithms to the multi-source regime (as described above), it is generally necessary to specify the number of clusters into which we partition the infection subgraph - that is, the hypothesized number of infection sources. `cosasi` provides a handful of relevant techniques for estimating this quantity, including the *Eigengap* heuristic [@von2007tutorial] and *Minimum Description Length* [@prakash2012spotting].
+
 - **Multiple Information Types**: Some source inference algorithms require information other than an infection subgraph. For instance, *Earliest Infection First* relies on a collection of observers, who report the time at which they become infected [@zhu2016locating]. `cosasi` provides multiple methods for providing state information to the source inference modules, enabling a wider array of potential localization algorithms.
 
 [`Whisper`](http://temigo.github.io/projects/whisper-app/) was an earlier, thematically similar web application. The project has been inactive since 2016, the web interface is no longer online, and the underlying library is less feature-rich than `cosasi` or `RPaSDT`.
