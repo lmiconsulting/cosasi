@@ -3,7 +3,7 @@ Contributor Guide
 =================
 
 
-We'd love your help! If you'd like to make an addition or improvement, please submit a pull request consisting of an atomic commit and a brief message describing your contribution. 
+We'd love your help! If you'd like to make an addition or improvement, please submit a pull request consisting of an atomic commit and a brief message describing your contribution.
 
 
 
@@ -82,7 +82,7 @@ We defer to the `contributor guidelines`_ outlined by `NetworkX`_.
 
 Bugs
 -------------------
-If you find something wrong, please submit a bug report to the issue tracker. 
+If you find something wrong, please submit a bug report to the issue tracker.
 
 
 
