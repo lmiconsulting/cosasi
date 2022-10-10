@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="cosasi",
-    version="0.0.1",
+    version="0.0.2",
     author="Lucas H. McCabe",
     author_email="lmccabe@lmi.org",
     description="COntagion Simulation And Source Inference",
