@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setup(
     name="cosasi",
-    version="0.0.2",
+    version="0.0.3",
     author="Lucas H. McCabe",
     author_email="lmccabe@lmi.org",
-    description="COntagion Simulation And Source Inference",
+    description="COntagion Simulation And Source Identification",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/lmiconsulting/cosasi",
