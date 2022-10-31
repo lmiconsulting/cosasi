@@ -3,7 +3,7 @@
 [![Downloads](https://pepy.tech/badge/cosasi)](https://pepy.tech/project/cosasi)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-# cosasi (COntagion Simulation And Source Inference)
+# cosasi (COntagion Simulation And Source Identification)
 
 ``cosasi`` is a Python package for graph diffusion source inference, allowing users to:
 
@@ -60,6 +60,7 @@ To read the .coverage file:
 ```bash
     coverage report
 ```
+
 
 ## Contributions
 

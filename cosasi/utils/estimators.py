@@ -65,13 +65,13 @@ def number_sources(
 
     Notes
     -----
-    If the diffusion process is brief or observation is early, and infection sources 
-    are sufficiently sparse, then the infected subgraphs corresponding to each infection 
-    source may be the connected components of the input graph. This is described in 
+    If the diffusion process is brief or observation is early, and infection sources
+    are sufficiently sparse, then the infected subgraphs corresponding to each infection
+    source may be the connected components of the input graph. This is described in
     Section 2.6 of [1]_.
 
     We estimate the number of infection sources by the minimum of the number of connected
-    components and the Eigengap heuristic of the provided graph. The Eigengap heuristic 
+    components and the Eigengap heuristic of the provided graph. The Eigengap heuristic
     is described in [2]_.
 
     With a hypothesized number of infection sources in hand, we partition the graph via
@@ -136,10 +136,10 @@ def chatter(I, G):
      G : NetworkX Graph
         The graph the diffusion process was originally run on
     """
-    T = list(I.nodes)
-    S = [v for v in G if v not in T]
-    frontier = nx.node_boundary(G=G, nbunch1=S, nbunch2=T)
-    frontier_idx = [T.index(v) for v in frontier]
+    # T = list(I.nodes)
+    # S = [v for v in G if v not in T]
+    # frontier = nx.node_boundary(G=G, nbunch1=S, nbunch2=T)
+    # frontier_idx = [T.index(v) for v in frontier]
     freq = chatter_frequency(I)
     np.fill_diagonal(freq, 0)
     w, v = np.linalg.eig(freq)
@@ -147,8 +147,8 @@ def chatter(I, G):
 
 
 def eigengap(G):
-    """Returns the estimated number of clusters of G, based on the Eigengap 
-    of the normalized graph Laplacian.    
+    """Returns the estimated number of clusters of G, based on the Eigengap
+    of the normalized graph Laplacian.
 
     Parameters
     ----------
@@ -175,7 +175,7 @@ def eigengap(G):
 
 def bits_encode_integer(n):
     """Estimates the number of bits required to encode an integer n>=1.
-    
+
     Parameters
     ----------
     n : int
@@ -203,7 +203,7 @@ def bits_encode_integer(n):
 
 
 def bits_encode_seed(s, G):
-    """Number of bits required to identify a seed set (hypothesized 
+    """Number of bits required to identify a seed set (hypothesized
     infection source set).
 
     Parameters
@@ -338,7 +338,7 @@ def bits_encode_ripple(s, G, beta=0.01):
 
 
 def description_length(s, G, beta=0.01):
-    """Implements a greedy heuristic to estimate the two-part minimal infection 
+    """Implements a greedy heuristic to estimate the two-part minimal infection
     description length of a proposed set of infection sources.
 
     Parameters
@@ -352,8 +352,8 @@ def description_length(s, G, beta=0.01):
 
     Notes
     -----
-    The minimal description length, as applied to source localization, is introduced 
-    in [1]_. 
+    The minimal description length, as applied to source localization, is introduced
+    in [1]_.
 
     References
     ----------
@@ -374,7 +374,7 @@ def chatter_frequency(G, t=None):
 
     t : int or None (optional)
         number of rounds to complete
-        if None, the algorithm runs until every node's message is received by 
+        if None, the algorithm runs until every node's message is received by
         every other node at least 5 times.
 
     Notes
@@ -436,7 +436,7 @@ def chatter_distance(G, t, u=None, v=None, normalized=True):
     Notes
     -----
     The chatter distance between nodes `u` and `v` reflects the difficulty node `u`
-    is expected to have in transmitting a message to node `v`.    
+    is expected to have in transmitting a message to node `v`.
     """
     message_frequency = chatter_frequency(G, t)
     distance = 1 / message_frequency

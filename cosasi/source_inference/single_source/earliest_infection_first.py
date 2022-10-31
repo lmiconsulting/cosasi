@@ -8,7 +8,9 @@ from ..source_results import SingleSourceResult
 
 
 def earliest_infection_first(I, G, observer_dict):
-    """Implements the single-source NETSLEUTH algorithm to score all nodes in I.
+    """Implements the Earliest Infection First algorithm to score all nodes in I.
+
+    This algorithm is useful if some infection timestamp information is available.
 
     Parameters
     ----------
@@ -24,7 +26,7 @@ def earliest_infection_first(I, G, observer_dict):
     -----
     This is the greedy algorithm outlined in Section 3 of [1]_. We iterate over rooting
     schemes and score each source hypothesis by the cost of their corresponding EIF
-    spreading tree. In particular, we implement the "cost-based ranking" approach described 
+    spreading tree. In particular, we implement the "cost-based ranking" approach described
     in Section 4 of [1]_.
 
     References

@@ -72,6 +72,12 @@ To read the ``.coverage`` file:
         coverage report
 
 
+The output should look something like this:
+
+.. figure:: ../_assets/coverage.png
+   :figwidth: 100%
+   :align: left
+
 
 
 Guidelines
