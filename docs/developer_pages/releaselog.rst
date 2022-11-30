@@ -5,7 +5,7 @@ Release Log
 
 0.0.3
 --------------------------------------
-Upgrade ``scipy`` and ``networx`` versions to address "module 'scipy.sparse' has no attribute 'coo_array'" issue_.
+Upgrade ``scipy`` and ``NetworkX`` versions to address "module 'scipy.sparse' has no attribute 'coo_array'" issue_.
 Correct docstring in Earliest Infection First.
 Add code coverage visual.
 

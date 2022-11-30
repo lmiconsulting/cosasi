@@ -22,7 +22,27 @@ Overview
 
 
 .. figure:: _assets/carbon.png
-   :align: left
+   :align: center
+   
+   Above: Carbon_ image of example code snippet; copy-and-paste-able version below.
+
+::
+
+   import networkx as nx
+   import cosasi
+
+   G = nx.fast_gnp_random_graph(100, 0.25)
+   contagion = cosasi.StaticNetworkContagion(
+       G=G,
+       model="si",
+       infection_rate=0.01,
+       number_infected=3,
+   )
+   contagion.forward(100)
+   I = contagion.get_infected_subgraph(step=15)
+   result = cosasi.source_inference.multiple_source.netsleuth(G=G, I=I)
+   result.evaluate(contagion.get_source())
+
 
 
 Table of Contents
@@ -43,3 +63,6 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`search`
+
+
+.. _Carbon: https://github.com/carbon-app/carbon
