@@ -10,11 +10,25 @@ While ``cosasi``'s focus is on the inverse problem of inferring the origin of a 
 - An epidemic model to run (one of SI, SIS, or SIR)
 - An ``infection_rate`` specifying the infectivity of the contagion
 
-We first define a contact network for the diffusion process to spread on; these are implemented as ``NetworkX`` graphs. Then define a contagion object:
+We first define a contact network for the diffusion process to spread on; these are implemented as ``NetworkX`` graphs.
 
 ::
 
-    G = nx.fast_gnp_random_graph(200, 0.15)
+    import networkx as nx
+    import cosasi
+    import random
+    import numpy as np
+
+    seed = 42
+    random.seed(seed)
+    np.random.seed(seed)
+
+    G = nx.fast_gnp_random_graph(200, 0.15, seed=seed)
+
+Then define a contagion object:
+
+::
+
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
@@ -25,7 +39,6 @@ By default, one vertex, selected uniformly at random, is "infected" at initializ
 
 ::
 
-    G = nx.fast_gnp_random_graph(200, 0.15)
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
@@ -37,7 +50,6 @@ or a fraction to be "infected" at initialization:
 
 ::
 
-    G = nx.fast_gnp_random_graph(200, 0.15)
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
@@ -49,7 +61,6 @@ If the epidemic model is SIR or SIS, the user must provide a recovery rate at wh
 
 ::
 
-    G = nx.fast_gnp_random_graph(200, 0.15)
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
@@ -67,5 +78,5 @@ After initialization, run the contagion process for as many steps as desired:
 To reset compartmental histories, simply run:
 
 ::
-    
+
     contagion.reset_sim()

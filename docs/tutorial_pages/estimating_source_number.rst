@@ -8,10 +8,17 @@ Here, we will specify a network for the diffusion process to spread on, simulate
 
 ::
 
-    import cosasi
     import networkx as nx
+    import cosasi
+    import random
+    import numpy as np
 
-    G = nx.fast_gnp_random_graph(200, 0.05)
+    seed = 42
+    random.seed(seed)
+    np.random.seed(seed)
+
+    G = nx.fast_gnp_random_graph(200, 0.1, seed=seed)
+
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
@@ -54,4 +61,3 @@ If the user knows or conjectures a particular number of sources (e.g. 4, but doe
 ::
 
     m, subgraphs = cosasi.utils.estimators.number_sources(I=I, number_sources=4, return_source_subgraphs=True)
-

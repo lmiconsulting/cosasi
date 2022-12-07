@@ -10,8 +10,15 @@ Assume we run the following diffusion simulation:
 
     import networkx as nx
     import cosasi
+    import random
+    import numpy as np
 
-    G = nx.fast_gnp_random_graph(100, 0.25)
+    seed = 42
+    random.seed(seed)
+    np.random.seed(seed)
+
+    G = nx.fast_gnp_random_graph(200, 0.25, seed=seed)
+
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
@@ -76,11 +83,11 @@ We can find this in the ``multi_source_result_netsleuth_eval`` dictionary:
     >>> multi_source_result_netsleuth_eval["distance"]["top score's distance"]
     {(93, 81): 4}
 
-The top-scoring hypothesis was close to the true source. 
+The top-scoring hypothesis was close to the true source.
 
 We also evaluate the distance from true source of all computed hypotheses, although this is not very useful for the standard NETSLEUTH algorithm, since it only generates one hypothesized source. The ``fast_multisource_netsleuth`` version is not always as accurate in the best case, but is better-suited for ranking, because it assesses many hypotheses:
 
-:: 
+::
 
     >>> distances = three_source_result_netsleuth_eval["distance"]["all distances"].values()
     >>> min(distances), max(distances)
