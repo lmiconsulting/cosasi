@@ -11,9 +11,14 @@ The general pattern for most source inference algorithms consists of the origina
     import networkx as nx
     import cosasi
     import random
+    import numpy as np
 
-    random.seed(42)
-    G = nx.fast_gnp_random_graph(200, 0.15)
+    seed = 42
+    random.seed(seed)
+    np.random.seed(seed)
+
+    G = nx.fast_gnp_random_graph(200, 0.15, seed=seed)
+
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
