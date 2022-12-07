@@ -1,5 +1,6 @@
 import networkx as nx
 import numpy as np
+import warnings
 
 from ..source_results import SingleSourceResult
 
@@ -14,19 +15,19 @@ def netsleuth(I, G):
     G : NetworkX Graph
         The original graph the infection process was run on.
         I is a subgraph of G induced by infected vertices at observation time.
-    
+
     Notes
     -----
-    NETSLEUTH is described in [1]_. General idea is that, under mean field 
-    approximation, the probability of observing an infection subgraph given a 
-    particular source s is proportional to the sth entry of the largest eigenvector 
+    NETSLEUTH is described in [1]_. General idea is that, under mean field
+    approximation, the probability of observing an infection subgraph given a
+    particular source s is proportional to the sth entry of the largest eigenvector
     of the infection subgraph Laplacian. The implementation below is described in
     [2]_.
 
-    Nodes outside the infection subgraph (i.e. the frontier set) receive a score of 
+    Nodes outside the infection subgraph (i.e. the frontier set) receive a score of
     negative infinity.
 
-    NETSLEUTH has linear complexity with the number of edges of the infected subgraph, 
+    NETSLEUTH has linear complexity with the number of edges of the infected subgraph,
     edges of the frontier set, and vertices of the infected subgraph.
 
 
@@ -44,6 +45,8 @@ def netsleuth(I, G):
         "Diffusion Source Localization in Large Networks"
         Synthesis Lectures on Communication Networks, 2018
     """
+    warnings.filterwarnings("ignore", module="networkx\..*")
+
     L = nx.laplacian_matrix(G).toarray()
     infection_indices = [i for i in I.nodes]
     L_I = L[np.ix_(infection_indices, infection_indices)]

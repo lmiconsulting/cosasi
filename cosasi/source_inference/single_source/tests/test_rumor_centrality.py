@@ -49,6 +49,7 @@ class TestRumorCentrality(TestCase):
             assert i in self.G.nodes()
             assert isinstance(result_data[i], (float, int)) and result_data[i] > 0
 
+
     def test_rumor_centrality_root_example(self):
         """Verifies worked example from Section III.A of [1]_.
 

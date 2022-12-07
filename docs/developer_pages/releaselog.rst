@@ -3,6 +3,15 @@ Release Log
 =================
 
 
+0.0.4
+--------------------------------------
+Handle future warnings provided by ``NetworkX`` and ``scikit-learn``.
+Expose ``seed`` parameter in diffusion simulation for consistent experimentation.
+Update formatting of code blocks in docstrings.
+Update a few tests.
+Add command line outputs to tutorial.
+
+
 0.0.3
 --------------------------------------
 Upgrade ``scipy`` and ``NetworkX`` versions to address "module 'scipy.sparse' has no attribute 'coo_array'" issue_.

@@ -17,13 +17,14 @@ The general pattern for most source inference algorithms consists of the origina
     random.seed(seed)
     np.random.seed(seed)
 
-    G = nx.fast_gnp_random_graph(200, 0.15, seed=seed)
+    G = nx.fast_gnp_random_graph(200, 0.01, seed=seed)
 
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
-        infection_rate=0.01,
-        number_infected=4,
+        infection_rate=0.2,
+        number_infected = 4,
+        seed=seed
     )
     contagion.forward(steps=100)
     I = contagion.get_infected_subgraph(step=10)
@@ -57,7 +58,7 @@ ranks all hypotheses by the algorithm's scoring method. In single-source algorit
 
     >>> print(single_source_result.topn(n=5))
 
-    [(11, 6), (11, 4), (11, 0), (11, 13), (21, 11)]
+    [176, 105, 36, 17, 143]
 
 Any ``SourceResult`` also retains details about the algorithm itself, including model assumptions and literature references:
 

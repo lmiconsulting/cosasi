@@ -22,8 +22,8 @@ def rumor_centrality_root(I, v, return_all_values=True):
 
     Notes
     -----
-    Rumor centrality was introduced in the seminal work [1]_. This is a more "literal" 
-    interpretation of their algorithm. `rumor_centrality` averages these results over all 
+    Rumor centrality was introduced in the seminal work [1]_. This is a more "literal"
+    interpretation of their algorithm. `rumor_centrality` averages these results over all
     possible BFS rooting schemes.
 
     References
@@ -104,8 +104,8 @@ def rumor_centrality(I, G=None, v=None, normalize=True, only_roots=False):
 
     Notes
     -----
-    Rumor centrality was introduced in the seminal work [1]_. `rumor_centrality_root` is a 
-    more "literal" interpretation of their algorithm. `rumor_centrality` (this function) 
+    Rumor centrality was introduced in the seminal work [1]_. `rumor_centrality_root` is a
+    more "literal" interpretation of their algorithm. `rumor_centrality` (this function)
     averages these results over all possible BFS rooting schemes.
 
 

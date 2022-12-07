@@ -9,7 +9,7 @@ from .. import single_source
 
 
 def fast_multisource_lisn(I, G, t, number_sources=None):
-    """Greedily runs single-source LISN algorithm on each estimated infection 
+    """Greedily runs single-source LISN algorithm on each estimated infection
     subgraph attributable to each of the hypothesized number of sources.
 
     Parameters

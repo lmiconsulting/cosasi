@@ -21,7 +21,8 @@ As before, we begin by specifying a network and simulating a contagion, per the 
         G=G,
         model="si",
         infection_rate=0.01,
-        number_infected = 4
+        number_infected = 4,
+        seed=seed
     )
     contagion.forward(100)
     I = contagion.get_infected_subgraph(10)

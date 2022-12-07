@@ -23,7 +23,8 @@ We first define a contact network for the diffusion process to spread on; these 
     random.seed(seed)
     np.random.seed(seed)
 
-    G = nx.fast_gnp_random_graph(200, 0.15, seed=seed)
+    G = nx.fast_gnp_random_graph(200, 0.01, seed=seed)
+
 
 Then define a contagion object:
 
@@ -32,7 +33,8 @@ Then define a contagion object:
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
-        infection_rate=0.01,
+        infection_rate=0.2,
+        seed=seed
     )
 
 By default, one vertex, selected uniformly at random, is "infected" at initialization. Alternately, the user can specify a number of "patients zero":
@@ -42,8 +44,9 @@ By default, one vertex, selected uniformly at random, is "infected" at initializ
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
-        infection_rate=0.01,
+        infection_rate=0.2,
         number_infected=4,
+        seed=seed
     )
 
 or a fraction to be "infected" at initialization:
@@ -53,8 +56,9 @@ or a fraction to be "infected" at initialization:
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
-        infection_rate=0.01,
+        infection_rate=0.2,
         fraction_infected=0.05,
+        seed=seed
     )
 
 If the epidemic model is SIR or SIS, the user must provide a recovery rate at which vertices in the infected compartment switch to the recovered or susceptible compartments:
@@ -64,8 +68,9 @@ If the epidemic model is SIR or SIS, the user must provide a recovery rate at wh
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
-        infection_rate=0.01,
-        recovery_rate=0.005
+        infection_rate=0.2,
+        recovery_rate=0.005,
+        seed=seed
     )
 
 

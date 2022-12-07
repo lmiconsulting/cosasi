@@ -19,16 +19,16 @@ def short_fat_tree(I, G, infection_rate=0.1):
         The original graph the infection process was run on.
         I is a subgraph of G induced by infected vertices at observation time.
     infection_rate : float (optional)
-        Inter-node infection efficiency from the original contagion process 
+        Inter-node infection efficiency from the original contagion process
         must be in [0, 1]
 
     Examples
     --------
     >>> result = cosasi.single_source.short_fat_tree(I, G)
-    
+
     Notes
     -----
-    Algorithm attempts to find infection center by identifying the vertex with 
+    Algorithm attempts to find infection center by identifying the vertex with
     largest weighted boundary node degree. The algorithm was introduced in [1]_.
 
     Nodes outside the infection subgraph receive a score of negative infinity.
@@ -94,7 +94,7 @@ def weighted_boundary_node_degree(I, G, v, infection_rate=0.01, return_boundary=
         The original graph the infection process was run on.
         I is a subgraph of G induced by infected vertices at observation time.
     infection_rate : float (optional)
-        Inter-node infection efficiency from the original contagion process 
+        Inter-node infection efficiency from the original contagion process
         must be in [0, 1]
     return_boundary : bool
         if True, you get both the weighted boundary node degree and the involved boundary nodes
@@ -102,7 +102,7 @@ def weighted_boundary_node_degree(I, G, v, infection_rate=0.01, return_boundary=
 
     Notes
     -----
-    This implementation is based on the WBND Algorithm, described in Algorithm 2.2 
+    This implementation is based on the WBND Algorithm, described in Algorithm 2.2
     on p. 10 of [1]_.
 
     References

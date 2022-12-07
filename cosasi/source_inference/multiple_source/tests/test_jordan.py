@@ -22,16 +22,20 @@ class TestJordan(TestCase):
         return None
 
     def test_fast_multisource_jordan_centrality(self):
-        result = cosasi.source_inference.multiple_source.fast_multisource_jordan_centrality(
-            self.I, self.G, 3
+        result = (
+            cosasi.source_inference.multiple_source.fast_multisource_jordan_centrality(
+                self.I, self.G, 3
+            )
         )
         assert isinstance(
             result, cosasi.source_inference.source_results.MultiSourceResult
         )
         top5 = result.topn(5)
         assert [len(i) == 3 for i in top5]
-        result = cosasi.source_inference.multiple_source.fast_multisource_jordan_centrality(
-            self.I, self.G
+        result = (
+            cosasi.source_inference.multiple_source.fast_multisource_jordan_centrality(
+                self.I, self.G
+            )
         )
         l = None
         for k in result.data["scores"].keys():
