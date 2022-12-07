@@ -6,8 +6,8 @@ from ..source_results import SingleSourceResult
 
 
 def jordan_centrality(I, G):
-    """Computes the infection eccentricity of each node in the infection subgraph. To 
-    produce a score with highest value corresponding to the Jordan center, we return 
+    """Computes the infection eccentricity of each node in the infection subgraph. To
+    produce a score with highest value corresponding to the Jordan center, we return
     the inverse of the infection eccentricity.
 
     Parameters
@@ -17,7 +17,7 @@ def jordan_centrality(I, G):
     G : NetworkX Graph
         The original graph the infection process was run on.
         I is a subgraph of G induced by infected vertices at observation time.
-    
+
     Notes
     -----
     The Jordan infection center is the vertex with minimum infection eccentricity.

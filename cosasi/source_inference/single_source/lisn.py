@@ -8,7 +8,7 @@ from ..source_results import SingleSourceResult
 
 
 def lisn(I, G, t=None, infection_rate=0.1):
-    """Implements the algorithm from Localizing the Information Source in a Network to 
+    """Implements the algorithm from Localizing the Information Source in a Network to
     score all nodes in G [1]_.
 
     Parameters
@@ -21,12 +21,12 @@ def lisn(I, G, t=None, infection_rate=0.1):
     t : int (optional)
         the observation timestep corresponding to I
     infection_rate : float (optional)
-        Inter-node infection efficiency from the original contagion process 
+        Inter-node infection efficiency from the original contagion process
         must be in [0, 1]
-    
+
     Notes
     -----
-    Because the probabilities can be quite small, we report the log-score, rather than the 
+    Because the probabilities can be quite small, we report the log-score, rather than the
     raw score itself.
 
     To our knowledge, this algorithm has no official name; it is referred to as "Algorithm 1"
@@ -75,9 +75,9 @@ def distance_prob(t, n, infection_rate=0.1):
     n : int
         shortest path distance
     infection_rate : float (optional)
-        Inter-node infection efficiency from the original contagion process 
+        Inter-node infection efficiency from the original contagion process
         must be in [0, 1]
-    
+
     Notes
     -----
     This function is defined in Section 3 of [1]_.

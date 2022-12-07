@@ -9,7 +9,7 @@ from .. import single_source
 
 
 def fast_multisource_jordan_centrality(I, G, number_sources=None):
-    """Greedily runs single-source Jordan centrality on each estimated infection 
+    """Greedily runs single-source Jordan centrality on each estimated infection
     subgraph attributable to each of the hypothesized number of sources.
 
     Parameters

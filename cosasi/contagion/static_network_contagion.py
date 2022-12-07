@@ -16,9 +16,9 @@ class StaticNetworkContagion:
         The network for the diffusion process to run on
     model : str
         Specifies the epidemic model. Currently handles the following diffusion models:
-            SI
-            SIS
-            SIR
+            - SI (susceptible-infected)
+            - SIS (susceptible-infected-susceptible)
+            - SIR (susceptible-infected-recovered)
     infection_rate : float
         Inter-node infection efficiency
         must be in [0, 1]
@@ -31,6 +31,8 @@ class StaticNetworkContagion:
     number_infected : float or None
         number of nodes to initialize as infected (selected uniformly at random)
         if both fraction_infected and number_infected are None, initializes with 1 infected node
+    seed : integer, random_state, or None (default)
+        random number generation state.
 
     Notes
     -----
@@ -45,6 +47,7 @@ class StaticNetworkContagion:
         recovery_rate=None,
         fraction_infected=None,
         number_infected=None,
+        seed=None,
     ):
         """A stochastic epidemic process defined on a static network.
 
@@ -69,12 +72,19 @@ class StaticNetworkContagion:
         number_infected : float or None
             number of nodes to initialize as infected (selected uniformly at random)
             if both fraction_infected and number_infected are None, initializes with 1 infected node
+        seed : integer, random_state, or None (default)
+            random number generation state.
 
         Notes
         -----
         A wrapper for `ndlib` with convenience utilities added.
         """
         self.model = model.lower()
+        self.seed = seed
+
+        if not isinstance(self.seed, type(None)):
+            random.seed(self.seed)
+            np.random.seed(self.seed)
 
         if isinstance(G, nx.classes.graph.Graph):
             self.G = G
@@ -114,14 +124,14 @@ class StaticNetworkContagion:
         config.add_model_parameter("beta", self.infection_rate)
 
         if self.model == "sir":
-            self.sim = ep.SIRModel(self.G)
+            self.sim = ep.SIRModel(graph=self.G, seed=self.seed)
             if not self.recovery_rate:
                 raise ValueError("Recovery rate must be defined for SIR model.")
             config.add_model_parameter("gamma", self.recovery_rate)
         elif self.model == "si":
-            self.sim = ep.SIModel(self.G)
+            self.sim = ep.SIModel(graph=self.G, seed=self.seed)
         elif self.model == "sis":
-            self.sim = ep.SISModel(self.G)
+            self.sim = ep.SISModel(graph=self.G, seed=self.seed)
             if not self.recovery_rate:
                 raise ValueError("Recovery rate must be defined for SIS model.")
             config.add_model_parameter("lambda", self.recovery_rate)
@@ -129,6 +139,8 @@ class StaticNetworkContagion:
             raise NotImplementedError("Diffusion model not recognized.")
 
         if self.number_infected:
+            if not isinstance(self.seed, type(None)):
+                random.seed(self.seed)
             infected = random.sample(range(len(self.G)), self.number_infected)
             config.add_model_initial_configuration("Infected", infected)
         elif self.fraction_infected:
@@ -170,7 +182,7 @@ class StaticNetworkContagion:
         Parameters
         ----------
         step : int
-            Iteration step 
+            Iteration step
 
         Returns
         -------
@@ -179,7 +191,7 @@ class StaticNetworkContagion:
         nodes = list(self.G)
 
         def status_to_delta(status):
-            """Converts the history's status to a vector representing movement in 
+            """Converts the history's status to a vector representing movement in
             (+1) and out (-1) of the infected compartment
 
             Parameters
@@ -213,7 +225,7 @@ class StaticNetworkContagion:
         Parameters
         ----------
         step : int
-            Iteration step 
+            Iteration step
 
         Returns
         -------
@@ -245,7 +257,7 @@ class StaticNetworkContagion:
         If self.model == "sis", nodes may be reinfected, so observers record a list of the timestamps
         at which they are infected. Otherwise, observers record one timestamp (step number) only.
 
-        If an observer is not infected during the simulation history, its corresponding infection 
+        If an observer is not infected during the simulation history, its corresponding infection
         timestamp is recorded as infinity.
         """
         if not self.history:
@@ -254,6 +266,10 @@ class StaticNetworkContagion:
             )
         timestamp_placeholder = np.inf if self.model == "si" else list()
         if isinstance(observers, int):
+            if not isinstance(self.seed, type(None)):
+                random.seed(self.seed)
+                np.random.seed(self.seed)
+
             observer_dict = {
                 i: timestamp_placeholder for i in random.sample(self.G.nodes, observers)
             }
@@ -300,7 +316,7 @@ class StaticNetworkContagion:
         Parameters
         ----------
         step : int
-            Iteration step 
+            Iteration step
 
         Returns
         -------

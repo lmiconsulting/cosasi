@@ -9,7 +9,7 @@ from .. import single_source
 
 
 def netsleuth(I, G, hypotheses_per_step=1):
-    """Implements the multi-source NETSLEUTH algorithm to score combinations 
+    """Implements the multi-source NETSLEUTH algorithm to score combinations
     of nodes in G.
 
     Parameters
@@ -20,46 +20,46 @@ def netsleuth(I, G, hypotheses_per_step=1):
         The original graph the infection process was run on.
         I is a subgraph of G induced by infected vertices at observation time.
     hypotheses_per_step : int (default 1)
-        number of candidate sources to be kept per iteration of NETSLEUTH. 
+        number of candidate sources to be kept per iteration of NETSLEUTH.
         Particular usage is described in greater detail in `Notes` section.
 
     Notes
     -----
     The number of source hypotheses returned will be hypotheses_per_step*[number of seed nodes],
-    the latter of which is automatically determined via minimum description length 
+    the latter of which is automatically determined via minimum description length
     calculations.
 
-    NETSLEUTH is described in [1]_ and [2]_. 
+    NETSLEUTH is described in [1]_ and [2]_.
 
-    NETSLEUTH has linear complexity with the number of edges of the infected subgraph, 
+    NETSLEUTH has linear complexity with the number of edges of the infected subgraph,
     edges of the frontier set, and vertices of the infected subgraph.
 
     The standard n-source version of NETSLEUTH operates as follows:
 
     1. Obtain Source 1 via single-source method
-    
+
     2. Delete Source 1 from infection subgraph; obtain Source 2 via single-source method
-    
+
         ...
-    
+
     n. Delete Source n-1 from infection subgraph; obtain Source n via single-source method.
-    
-    This does not lend itself to ranking alternative hypotheses, so we implement a 
+
+    This does not lend itself to ranking alternative hypotheses, so we implement a
     more general variant:
 
-    1. Obtain top ``hypotheses_per_step``-many candidates for Source 1 via single-source 
+    1. Obtain top ``hypotheses_per_step``-many candidates for Source 1 via single-source
     method; each corresponds to one hypothesis source set, each of size 1
-    
-    2. For each hypothesis source set, delete these nodes from a copy of the infection subgraph, 
-    then obtain top ``hypotheses_per_step``-many candidates for Source 2 via single-source 
-    method; construct ``|source sets| * hypotheses_per_step`` new source sets to replace the old 
+
+    2. For each hypothesis source set, delete these nodes from a copy of the infection subgraph,
+    then obtain top ``hypotheses_per_step``-many candidates for Source 2 via single-source
+    method; construct ``|source sets| * hypotheses_per_step`` new source sets to replace the old
     source sets, each of size 2
 
         ...
-    
-    n. For each hypothesis source set, delete these nodes from a copy of the infection subgraph, 
-    then obtain top ``hypotheses_per_step``-many candidates for Source n via single-source 
-    method; construct |source sets|*``hypotheses_per_step`` new source sets to replace the old 
+
+    n. For each hypothesis source set, delete these nodes from a copy of the infection subgraph,
+    then obtain top ``hypotheses_per_step``-many candidates for Source n via single-source
+    method; construct |source sets|*``hypotheses_per_step`` new source sets to replace the old
     source sets, each of size n
 
 
@@ -124,7 +124,7 @@ def netsleuth(I, G, hypotheses_per_step=1):
 
 
 def fast_multisource_netsleuth(I, G, number_sources=None):
-    """Greedily runs single-source NETSLEUTH on each estimated infection subgraph attributable 
+    """Greedily runs single-source NETSLEUTH on each estimated infection subgraph attributable
     to each of the hypothesized number of sources.
 
     Parameters
@@ -145,10 +145,10 @@ def fast_multisource_netsleuth(I, G, number_sources=None):
     Notes
     -----
     Unofficial variant of multisource NETSLEUTH intended for fast computation and ranking,
-    because the typical multisource version does not lend itself to scoring many possible 
+    because the typical multisource version does not lend itself to scoring many possible
     source sets.
 
-    NETSLEUTH is described in [1]_ and [2]_. More authoritative implementation is found in 
+    NETSLEUTH is described in [1]_ and [2]_. More authoritative implementation is found in
     `multisource.netsleuth`.
 
     References

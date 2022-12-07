@@ -28,7 +28,7 @@ def longest_list(l):
 
 
 def longest_list_len(l):
-    """Returns the length of the longest list in an array-like 
+    """Returns the length of the longest list in an array-like
     of lists.
 
     Parameters
@@ -51,7 +51,7 @@ def soft_eccentricity(G, v):
 
     Notes
     -----
-    If `G` is connected and has more than one node, this is regular eccentricity. If `G` 
+    If `G` is connected and has more than one node, this is regular eccentricity. If `G`
     has only one node, returns 1. If `G` is disconnected, returns infinite eccentricity.
     """
     if nx.number_connected_components(G) > 1:

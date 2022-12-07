@@ -88,7 +88,7 @@ We defer to the `contributor guidelines`_ outlined by `NetworkX`_.
 
 Bugs
 -------------------
-If you find something wrong, please submit a bug report to the issue tracker.
+If you find something wrong, please submit a bug report to the issue tracker_.
 
 
 
@@ -97,3 +97,4 @@ If you find something wrong, please submit a bug report to the issue tracker.
 .. _coverage: https://coverage.readthedocs.io/en/6.3.2/
 .. _contributor guidelines: https://networkx.org/documentation/stable/developer/contribute.html#guidelines
 .. _NetworkX: https://networkx.org/documentation/stable/index.html
+.. _tracker: https://github.com/lmiconsulting/cosasi/issues

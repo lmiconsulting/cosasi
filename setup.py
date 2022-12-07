@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="cosasi",
-    version="0.0.3",
+    version="0.0.4",
     author="Lucas H. McCabe",
     author_email="lmccabe@lmi.org",
     description="COntagion Simulation And Source Identification",
@@ -20,5 +20,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.8',
+    python_requires=">=3.8",
 )
