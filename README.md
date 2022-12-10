@@ -1,9 +1,10 @@
 [![PyPI version](https://badge.fury.io/py/cosasi.svg)](https://badge.fury.io/py/cosasi)
 [![Documentation Status](https://readthedocs.org/projects/cosasi/badge/?version=latest)](https://cosasi.readthedocs.io/en/latest/?badge=latest)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Downloads](https://pepy.tech/badge/cosasi)](https://pepy.tech/project/cosasi)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-# cosasi (COntagion Simulation And Source Inference)
+# cosasi (COntagion Simulation And Source Identification)
 
 ``cosasi`` is a Python package for graph diffusion source inference, allowing users to:
 
@@ -17,14 +18,12 @@
 * [Table of Contents](#table-of-contents)
 * [Installation](#installation)
 * [Getting Started](#getting-started)
+* [Code Snippet](#code-snippet)
 * [Testing](#testing)
 * [Contributions](#contributions)
 * [Support](#support)
 * [Contact](#contact)
 * [License](#license)
-
-
-![carbon](./docs/_assets/carbon.png)
 
 
 ## Installation
@@ -45,6 +44,31 @@ pip install -r requirements.txt
 ## Getting Started
 Once `cosasi` is installed, feel free to review our [tutorial](https://cosasi.readthedocs.io/en/latest/tutorial.html) introducing major functionality. Official documentation, including a detailed [API reference](https://cosasi.readthedocs.io/en/latest/apiref.html), is available on [Read the Docs](https://cosasi.readthedocs.io/).
 
+
+## Code Snippet
+
+| ![carbon](./docs/_assets/carbon.png) |
+|:--:|
+| Above: [Carbon](https://github.com/carbon-app/carbon) image of example code snippet; copy-and-paste-able version below. |
+
+
+```python
+import networkx as nx
+import cosasi
+
+G = nx.fast_gnp_random_graph(100, 0.25)
+contagion = cosasi.StaticNetworkContagion(
+   G=G,
+   model="si",
+   infection_rate=0.01,
+   number_infected=3,
+)
+contagion.forward(100)
+I = contagion.get_infected_subgraph(step=15)
+result = cosasi.source_inference.multiple_source.netsleuth(G=G, I=I)
+result.evaluate(contagion.get_source())
+```
+
 ## Testing
 
 Extensive unit testing is employed throughout, with ~97% code coverage.
@@ -60,6 +84,7 @@ To read the .coverage file:
 ```bash
     coverage report
 ```
+
 
 ## Contributions
 

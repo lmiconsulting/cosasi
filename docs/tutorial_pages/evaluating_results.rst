@@ -10,13 +10,21 @@ Assume we run the following diffusion simulation:
 
     import networkx as nx
     import cosasi
+    import random
+    import numpy as np
 
-    G = nx.fast_gnp_random_graph(100, 0.25)
+    seed = 42
+    random.seed(seed)
+    np.random.seed(seed)
+
+    G = nx.fast_gnp_random_graph(200, 0.25, seed=seed)
+
     contagion = cosasi.StaticNetworkContagion(
         G=G,
         model="si",
         infection_rate=0.01,
-        number_infected = 2
+        number_infected = 2,
+        seed=seed
     )
     contagion.forward(100)
     I = contagion.get_infected_subgraph(step=15)
@@ -52,14 +60,14 @@ Solution Rank
 
 Where possible, ``cosasi`` extends localization algorithms to perform ranking over many hypotheses. This way, we may rank all hypotheses according to the algorithm's implicit scoring criteria and return the rank of the true source among all hypotheses. This is similar to the "precision at k" metric prevalent in information retrieval.
 
-We can find this in the ``two_source_result_lisn_eval`` dictionary:
+We can find this in the ``multi_source_result_netsleuth_eval`` dictionary:
 
 ::
 
-    >>> two_source_result_lisn_eval["rank"]
-    12
+    >>> multi_source_result_netsleuth_eval["rank"]
+    2
 
-So the true source was the 12th highest-ranking hypothesis by this algorithm.
+So the true source was the 2nd highest-ranking hypothesis by this algorithm.
 
 
 Distance from True Source
@@ -74,16 +82,16 @@ We can find this in the ``multi_source_result_netsleuth_eval`` dictionary:
 ::
 
     >>> multi_source_result_netsleuth_eval["distance"]["top score's distance"]
-    {(93, 81): 4}
+    {(18, 135): 3}
 
-The top-scoring hypothesis was close to the true source. 
+The top-scoring hypothesis was close to the true source.
 
 We also evaluate the distance from true source of all computed hypotheses, although this is not very useful for the standard NETSLEUTH algorithm, since it only generates one hypothesized source. The ``fast_multisource_netsleuth`` version is not always as accurate in the best case, but is better-suited for ranking, because it assesses many hypotheses:
 
-:: 
+::
 
     >>> distances = three_source_result_netsleuth_eval["distance"]["all distances"].values()
     >>> min(distances), max(distances)
-    (4, 8)
+    (3, 8)
 
-We see that the distance from true source of these hypotheses ranged from 4 to 8.
+We see that the distance from true source of these hypotheses ranged from 3 to 8.

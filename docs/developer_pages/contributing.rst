@@ -3,7 +3,7 @@ Contributor Guide
 =================
 
 
-We'd love your help! If you'd like to make an addition or improvement, please submit a pull request consisting of an atomic commit and a brief message describing your contribution. 
+We'd love your help! If you'd like to make an addition or improvement, please submit a pull request consisting of an atomic commit and a brief message describing your contribution.
 
 
 
@@ -72,6 +72,12 @@ To read the ``.coverage`` file:
         coverage report
 
 
+The output should look something like this:
+
+.. figure:: ../_assets/coverage.png
+   :figwidth: 100%
+   :align: left
+
 
 
 Guidelines
@@ -82,7 +88,7 @@ We defer to the `contributor guidelines`_ outlined by `NetworkX`_.
 
 Bugs
 -------------------
-If you find something wrong, please submit a bug report to the issue tracker. 
+If you find something wrong, please submit a bug report to the issue tracker_.
 
 
 
@@ -91,3 +97,4 @@ If you find something wrong, please submit a bug report to the issue tracker.
 .. _coverage: https://coverage.readthedocs.io/en/6.3.2/
 .. _contributor guidelines: https://networkx.org/documentation/stable/developer/contribute.html#guidelines
 .. _NetworkX: https://networkx.org/documentation/stable/index.html
+.. _tracker: https://github.com/lmiconsulting/cosasi/issues

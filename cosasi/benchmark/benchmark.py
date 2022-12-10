@@ -71,7 +71,7 @@ def _get_namespace_params(name, return_defaults=True):
     name : function
         function namespace
     return_defaults : bool
-        if True, also includes 
+        if True, also includes
     """
     arg_num = name.__code__.co_argcount
     param_names = name.__code__.co_varnames[:arg_num]
@@ -240,7 +240,7 @@ class BenchmarkFromDetails:
         return None
 
     def get_namespaces(self):
-        """Finds all source localization algorithms applicable to the contagion task 
+        """Finds all source localization algorithms applicable to the contagion task
         specified in the class constructor.
         """
         if isinstance(self.number_sources, type(None)):

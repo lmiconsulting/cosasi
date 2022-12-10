@@ -1,5 +1,6 @@
 import math
 import random
+import warnings
 
 import scipy
 import numpy as np
@@ -21,6 +22,9 @@ def source_subgraphs(I, number_sources=2):
     number_sources : int
         The hypothesized number of infection sources
     """
+    warnings.filterwarnings("ignore", category=UserWarning)
+    warnings.filterwarnings("ignore", category=FutureWarning)
+
     I_node_list = list(I.nodes)
     A = nx.adjacency_matrix(I)
     subgraphs = []
@@ -55,9 +59,9 @@ def number_sources(
         if False, does not return subgraphs of I corresponding to each hypothesized infection source
     number_sources_method : str
         method for estimating the number of sources. one of the following options:
-            - "eigengap" : uses the Eigengap of the normalized graph Laplacian to estimate the number of clusters
-            - "netsleuth" : runs the multi-source NETSLEUTH algorithm and reports the number of seeds
-            - "chatter" : invokes a spectral method based on the Chatter algorithm
+        - "eigengap" : uses the Eigengap of the normalized graph Laplacian to estimate the number of clusters
+        - "netsleuth" : runs the multi-source NETSLEUTH algorithm and reports the number of seeds
+        - "chatter" : invokes a spectral method based on the Chatter algorithm
         if number_sources != None, this doesn't do anything
     G : NetworkX Graph (optional)
         the original network the contagion process was run on
@@ -133,13 +137,13 @@ def chatter(I, G):
     ----------
     I : NetworkX Graph
         The infection subgraph observed at a particular time step
-     G : NetworkX Graph
+    G : NetworkX Graph
         The graph the diffusion process was originally run on
     """
-    T = list(I.nodes)
-    S = [v for v in G if v not in T]
-    frontier = nx.node_boundary(G=G, nbunch1=S, nbunch2=T)
-    frontier_idx = [T.index(v) for v in frontier]
+    # T = list(I.nodes)
+    # S = [v for v in G if v not in T]
+    # frontier = nx.node_boundary(G=G, nbunch1=S, nbunch2=T)
+    # frontier_idx = [T.index(v) for v in frontier]
     freq = chatter_frequency(I)
     np.fill_diagonal(freq, 0)
     w, v = np.linalg.eig(freq)
@@ -166,6 +170,8 @@ def eigengap(G):
         Statistics and Computing, 2007
         https://link.springer.com/article/10.1007/s11222-007-9033-z
     """
+    warnings.filterwarnings("ignore", category=FutureWarning)
+
     L = nx.normalized_laplacian_matrix(G).toarray()
     eigenvalues, eigenvectors = np.linalg.eig(L)
     eigenvalues.sort()
@@ -277,7 +283,7 @@ def bits_encode_ripple(s, G, beta=0.01):
             https://link.springer.com/article/10.1007/s10115-013-0671-5
         """
         p_d = 1 - (1 - beta) ** d  # attack probability in the set
-        return math.comb(f_d, m_d) * (p_d ** m_d) * (1 - p_d) ** (f_d - m_d)
+        return math.comb(f_d, m_d) * (p_d**m_d) * (1 - p_d) ** (f_d - m_d)
 
     def l_frontier(f, infected=s):
         """Calculates the code length for encoding the infectious in the frontier
@@ -371,7 +377,7 @@ def chatter_frequency(G, t=None):
     Parameters
     ----------
     G : NetworkX Graph
-
+        The graph to analyze
     t : int or None (optional)
         number of rounds to complete
         if None, the algorithm runs until every node's message is received by
@@ -385,6 +391,8 @@ def chatter_frequency(G, t=None):
     message_frequency[i][j] is the number of times i received j's message.
 
     A "naive"/pure message-passing formulation of this would be along the lines of:
+
+    .. code-block:: python
 
         def chatter_distance_slow(G, t):
             messages = {i:[i] for i in G}
@@ -400,6 +408,8 @@ def chatter_frequency(G, t=None):
     this is very slow and easily re-written as matrix multiplication, as is done
     here.
     """
+    warnings.filterwarnings("ignore", category=FutureWarning)
+
     A = nx.adjacency_matrix(G).toarray()
     message_frequency = scipy.sparse.identity(len(G)).toarray()
     if isinstance(t, type(None)):
@@ -423,7 +433,7 @@ def chatter_distance(G, t, u=None, v=None, normalized=True):
     Parameters
     ----------
     G :NetworkX Graph
-
+        The graph to analyze
     t : int
         number of rounds to complete
     u : node (optional)

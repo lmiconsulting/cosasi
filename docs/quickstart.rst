@@ -29,5 +29,19 @@ Installation via GitHub
     pip install -r requirements.txt
 
 
+
+Standard Imports
+----------------
+
+In general, we like to use the following standard imports:
+
+::
+
+    import networkx as nx
+    import cosasi
+    import random
+    import numpy as np
+
+
 .. _pip: https://pypi.org/project/cosasi/
 .. _here: https://github.com/lmiconsulting/cosasi
