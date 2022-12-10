@@ -76,7 +76,7 @@ To the author's knowledge, the only comparable and active source localization so
 
 [`Whisper`](http://temigo.github.io/projects/whisper-app/) was an earlier, thematically similar web application. The project has been inactive since 2016, the web interface is no longer online, and the underlying library is less feature-rich than `cosasi` or `RPaSDT`.
 
-A recent graph autoencoder-based approach by Ling and colleagues performs maximum a posteriori source estimation using a generative prior over diffusion sources [@ling2022source]. Their corresponding [GitHub repository](https://github.com/triplej0079/SLVAE) implements their SL-VAE method, but is not a general-purpose diffusion source localization framework.
+A recent graph autoencoder-based approach by Ling and colleagues performs maximum a posteriori source estimation using a generative prior over diffusion sources [@ling2022source]. The corresponding [GitHub repository](https://github.com/triplej0079/SLVAE) implements their SL-VAE method, but is not a general-purpose diffusion source localization framework.
 
 A handful of libraries exist to simulate diffusion processes on complex networks; `OONIS` [@karczmarczyk2021oonis], `EoN` [@miller2020eon], `contagion` [@lucas_mccabe_2021_4456181], `EpiModel` [@jenness2018epimodel], and `NDlib` [@rossetti2018ndlib] are examples with tens of thousands of downloads among them. These, however, only address the *forward* problem (contagion propagation), whereas `cosasi` is focused on the *inverse* problem (source inference).
 
