@@ -4,9 +4,9 @@
 [![Downloads](https://pepy.tech/badge/cosasi)](https://pepy.tech/project/cosasi)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-# cosasi (COntagion Simulation And Source Identification)
+# cosasi: Graph Diffusion Source Inference in Python
 
-``cosasi`` is a Python package for graph diffusion source inference, allowing users to:
+``cosasi`` (COntagion Simulation And Source Identification) is a Python package for graph diffusion source inference, allowing users to:
 
 - **perform and evaluate** source inference using standard techniques from literature,
 - **contribute** innovative localization methods to a growing core library, and
