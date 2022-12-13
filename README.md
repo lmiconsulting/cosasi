@@ -3,6 +3,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Downloads](https://pepy.tech/badge/cosasi)](https://pepy.tech/project/cosasi)
 [![DOI](https://zenodo.org/badge/541174642.svg)](https://zenodo.org/badge/latestdoi/541174642)
+[![JOSS](https://joss.theoj.org/papers/10.21105/joss.04894/status.svg)](https://doi.org/10.21105/joss.04894)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 # cosasi: Graph Diffusion Source Inference in Python
@@ -22,6 +23,7 @@
 * [Code Snippet](#code-snippet)
 * [Testing](#testing)
 * [Contributions](#contributions)
+* [Citing](#citing)
 * [Support](#support)
 * [Contact](#contact)
 * [License](#license)
@@ -93,6 +95,25 @@ We’d love your help! If you’d like to make an addition or improvement, pleas
 
 Our contributor guide is [here](https://cosasi.readthedocs.io/en/latest/developer_pages/contributing.html), and we itemize a few areas of development we’d like to prioritize for the future of `cosasi` [here](https://cosasi.readthedocs.io/en/latest/developer_pages/roadmap.html). If you find something wrong, please submit a bug report to the [issue tracker](https://github.com/lmiconsulting/cosasi/issues). For other questions or comments, feel free to [contact us](#contact) directly.
 
+## Citing
+
+If you found `cosasi` helpful in your work, please consider citing it with:
+
+```bibtex
+@article{McCabe2022,
+  doi = {10.21105/joss.04894},
+  url = {https://doi.org/10.21105/joss.04894},
+  year = {2022},
+  publisher = {The Open Journal},
+  volume = {7},
+  number = {80},
+  pages = {4894},
+  author = {Lucas H. McCabe},
+  title = {cosasi: Graph Diffusion Source Inference in Python}, journal = {Journal of Open Source Software}
+}
+```
+
+McCabe, L. H., (2022). cosasi: Graph Diffusion Source Inference in Python. Journal of Open Source Software, 7(80), 4894, https://doi.org/10.21105/joss.04894
 
 ## Support
 
