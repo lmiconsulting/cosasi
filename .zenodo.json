@@ -18,10 +18,5 @@
             "identifier": "https://github.com/lmiconsulting/cosasi/tree/cosasi-0.0.4",
             "relation": "isSupplementTo"
         },
-        {
-            "scheme": "doi",
-            "identifier": "10.5281/zenodo.7430532",
-            "relation": "isVersionOf"
-        }
     ]
 }
