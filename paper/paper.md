@@ -49,7 +49,7 @@ Given an undirected graph $G=(V, E)$ with vertex set $V$ and edge set $E$, a dif
 
 The infection subgraph $I_t$ is the subgraph of $G$ induced by the infected vertices at time $t$. In the single-source SI model, $I_t$ is guaranteed to be connected. A common setting for source localization is to infer $S$ from some $I_t$. More recently, some techniques have incorporated information from a small set of observers, who record the time at which they become infected [@zhu2016locating].
 
-Broadly speaking, source estimators fall into one of two categories: message-passing algorithms, such as *Short-Fat Tree* [@zhu2014information], or spectral algorithms, such as *NETSLEUTH* [@prakash2012spotting]. An extensive overview of source localization techniques is provided by Ying and Zhu [@ying2018diffusion].
+Broadly speaking, source estimators fall into one of two categories: message-passing algorithms, such as *Short-Fat Tree* [@zhu2014information], or spectral algorithms, such as *NETSLEUTH* [@prakash2012spotting]. An extensive overview of source localization techniques is provided by @ying2018diffusion.
 
 
 
