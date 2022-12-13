@@ -7,8 +7,9 @@
     "publication_date": "2022-12-13",
     "creators": [
         {
-            "affiliation": "LMI",
-            "name": "Lucas H. McCabe"
+            "affiliation": "Digital and Analytic Solutions, Logistics Management Institute; Department of Mathematics, The George Washington University",
+            "name": "Lucas H. McCabe",
+            "orcid": "0000-0002-7383-2823"
         }
     ],
     "access_right": "open",
@@ -17,6 +18,6 @@
             "scheme": "url",
             "identifier": "https://github.com/lmiconsulting/cosasi/tree/cosasi-0.0.4",
             "relation": "isSupplementTo"
-        },
+        }
     ]
 }
