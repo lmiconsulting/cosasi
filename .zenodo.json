@@ -1,0 +1,27 @@
+{
+    "description": "<p>Details available in <a href=\"https://cosasi.readthedocs.io/en/latest/developer_pages/releaselog.html#id1\">Release Log</a></p>",
+    "license": "MIT",
+    "title": "cosasi: Graph Diffusion Source Inference in Python",
+    "version": "cosasi-0.0.4",
+    "upload_type": "software",
+    "publication_date": "2022-12-13",
+    "creators": [
+        {
+            "affiliation": "LMI",
+            "name": "Lucas H. McCabe"
+        }
+    ],
+    "access_right": "open",
+    "related_identifiers": [
+        {
+            "scheme": "url",
+            "identifier": "https://github.com/lmiconsulting/cosasi/tree/cosasi-0.0.4",
+            "relation": "isSupplementTo"
+        },
+        {
+            "scheme": "doi",
+            "identifier": "10.5281/zenodo.7430532",
+            "relation": "isVersionOf"
+        }
+    ]
+}
