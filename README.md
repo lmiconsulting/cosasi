@@ -100,7 +100,7 @@ Our contributor guide is [here](https://cosasi.readthedocs.io/en/latest/develope
 If you found `cosasi` helpful in your work, please consider citing it with:
 
 ```bibtex
-@article{McCabe2022,
+@article{McCabe2022joss,
   doi = {10.21105/joss.04894},
   url = {https://doi.org/10.21105/joss.04894},
   year = {2022},
