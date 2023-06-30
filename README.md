@@ -117,7 +117,7 @@ McCabe, L. H., (2022). cosasi: Graph Diffusion Source Inference in Python. Journ
 
 ## Support
 
-`cosasi` was developed in [Forge](https://www.lmi.org/forge), the technology accelerator of the [Logistics Management Institute](https://www.lmi.org/about-lmi).
+`cosasi` was developed in [Forge](https://www.lmi.org/technology-innovation/forge), the technology accelerator of the [Logistics Management Institute](https://www.lmi.org/about-lmi).
 
 ## Contact
 
